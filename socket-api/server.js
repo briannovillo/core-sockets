@@ -12,8 +12,9 @@ class Server {
     });
 
     app.post('/broadcast', function(req, res, next) {
-      console.log(req.body);
-      io.emit('broadcast', "dasd");
+      console.log("broadcast message", req.body.message);
+      io.emit('broadcast', req.body.message);
+      res.sendStatus(200);
     });
 
     server.listen(port);
