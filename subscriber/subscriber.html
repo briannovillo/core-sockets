@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>TN</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js">
+      const socket = new io.Socket('http://localhost', {port: 3000, resource: 'nodejs'});
+      socket.connect();
+      socket.on('connection', function() {
+        console.log("asdasd");
+      });
+      socket.on('message', function(message){
+        console.log("viene un mensaje", message);
+        const header = document.getElementById('header');
+        header.innerHTML += message;
+      });
+    </script>
+</head>
+<body>
+    <h1>Cliente de mensajes</h1>
+    Mensaje recibido: <header></header>
+</body>
+</html>

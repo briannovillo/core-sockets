@@ -1,0 +1,30 @@
+{
+  "name": "socket-api",
+  "version": "1.0.0",
+  "description": "Socket API for broadcast messages",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briannovillo/core-sockets.git"
+  },
+  "keywords": [
+    "sockets",
+    "API",
+    "broadcast",
+    "message"
+  ],
+  "author": "Brian Novillo",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/briannovillo/core-sockets/issues"
+  },
+  "homepage": "https://github.com/briannovillo/core-sockets#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
