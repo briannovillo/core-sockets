@@ -2,21 +2,21 @@
 <html>
 <head>
     <title>TN</title>
-</head>
-<body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <script>
       const url = "http://localhost:3000";
       const socket = io.connect(url, {reconnect: true});
       socket.on('connect', function() {
-        console.log("Cliente conectado a", url);
+        console.log("Client connected to", url);
       });
-      socket.on('broadcast', function(message){
-        console.log("viene un mensaje", message);
+      socket.on('broadcast', function(message) {
+        console.log("Received message", message);
         const header = document.getElementById('header');
-        header.innerHTML += message;
+        header.innerHTML = message;
       });
     </script>
+</head>
+<body>
     <h1>Cliente de mensajes</h1>
     Mensaje recibido: <div id="header"></div>
 </body>

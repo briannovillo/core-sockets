@@ -5,9 +5,26 @@
 </head>
 <body>
     <h1>Publicador de mensajes de socket</h1>
-    <form action="http://localhost:3000/broadcast" method="post">
-        Mensaje a enviar a los clientes: <input type="text" name="message"><br>
-        <input type="submit" value="Enviar">
+    <form>
+        Mensaje a enviar a los clientes: <input id="message" title="message" type="text"><input id="submit" type="button" value="Enviar">
     </form>
+    <script>
+      function submit() {
+        const url = "http://localhost:3000/broadcast";
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify({"message": document.getElementById("message").value}));
+        xhttp.onload = function() {
+          console.log(`Message has been send to socket-api (${url}) response ${xhttp.responseText}`);
+        }
+      }
+
+      document.getElementById("submit").addEventListener("click", (e) => {
+        e.preventDefault();
+        submit();
+      });
+    </script>
 </body>
 </html>
